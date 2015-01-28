@@ -26,3 +26,48 @@ else:
    
 print "Value " + str(value) + " is a grade " + letterGrade
 
+
+# while statement
+fact = 1
+i = 1
+while i <= value and i <= 15:
+   fact = fact * i
+   print i, "! = ", fact
+   i = i + 1
+
+print "TOTAL: ", fact
+
+# for statement
+print "counting to 10 from 0"
+for i in xrange(10):
+    print i
+
+print "counting to 10 from 1"
+for i in xrange(1, 11):
+    print i
+
+print "counting from 5 to 15"
+for i in xrange(5, 16):
+    print i
+
+print "counting to 10 by 2 "
+for i in xrange(0, 11, 2):
+    print i
+
+print "counting letters in a string!!. ej: "
+chars = 0
+vowels = 0
+for ch in "CHIRIPITIFLAUTICO":
+    chars = chars + 1
+    if(ch in "AEIOU"):
+        vowels = vowels + 1
+print "CHIRIPITIFLAUTICO has", chars, "characters,", vowels, "are vowels."
+
+
+
+
+
+
+
+
+
