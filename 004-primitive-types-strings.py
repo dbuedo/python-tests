@@ -26,3 +26,10 @@ print "substring beginning 'string' : ", "string"[:3]
 print "substring inside of 'string' : ", "string"[2:4]
 print "substring ending 'string' : ", "string"[3:]
 print "'string' without the last char: ", "string"[:-1]
+
+print "Comparing time!"
+print "== can compare strings? : ", "THIS STRING" == "THIS STRING"
+print "== can compare strings ignoring case? : ", "this STRING" == "tHiS sTring"
+print "> and < can compare order of strings? : ", "THIS STRING" > "THAT STRING"
+print "'in' is used like contains : ", "RING" in "STRING" 
+print "'not in' is used like not contains : ", "RANG" not in "STRING" 
