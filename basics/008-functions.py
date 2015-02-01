@@ -29,19 +29,37 @@ functionWithDefaults()
 
 print "functions always returns something, if there isn't return statements it will return : " , functionWithDefaults()
 
-print "Another cool feature is passing functions to another fucntions by parameters."
+print "Another cool feature is passing functions to another functions by parameters."
+
 def move(animal="Humans", kindOfMove="watch TV"):
-    return animal + " " + kindOfMove + "."
+    if callable(kindOfMove): # check if param is a function (can be 'called')
+        return animal + " " + kindOfMove() + "."
+    else:
+        return animal + " " + kindOfMove + "."
 def run():
     return "run"
 def fly():
     return "fly"
 def swim():
     return "swim"
-print move("Lions",run())
-print move("Birds",fly())
-print move("Fishes",swim())
+print move("Lions", run)
+print move("Birds", fly)
+print move("Fishes", swim)
 print move()
+
+
+print "In python, functions can return multiple objects as a tuple"
+def returnMultipleValues():
+    return 1, "a", True
+
+# assing every value to a variable
+position, character, isVowel = returnMultipleValues()
+
+print "character '" + str(character) + "' is in position " + str(position) + ". Is it vowel? " + str(isVowel)
+
+
+
+
 
 
 
