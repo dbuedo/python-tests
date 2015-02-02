@@ -1,4 +1,4 @@
-from __builtin__ import True
+
 
 # define a class
 class Vehicle:
