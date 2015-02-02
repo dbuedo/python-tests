@@ -22,3 +22,9 @@ car.move()
 print "Motorbike is another child class of Vehicle. "
 moto = Motorbike()
 moto.move()
+
+print "MotoCar extends Motorbike and Car simultaneously. "
+motoCar = MotoCar()
+motoCar.wheelsStatus()
+motoCar.move()
+

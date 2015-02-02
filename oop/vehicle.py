@@ -46,7 +46,17 @@ class Motorbike(Vehicle):
     def move(self):
         print "Wearing helmet?: " + str(self.isHelmetOn)
         
+
+# multiple inheritance, MotoCar extends Motorbike and Car
+# the order is important: both has a move() implementation
+# in this case, Motorbike.move() prevails because it is in first place
+# in this case, Motorbike.move() prevails because it is in first place
+class MotoCar(Motorbike,Car):
+    # finish class without adding anything
+    pass
+
         
+
         
     
     
