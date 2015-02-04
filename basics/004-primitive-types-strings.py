@@ -9,7 +9,7 @@ print "Can I write a new line character like in Java?\n yes, i can"
 print "What about scaping \"quotes\" or \\backslashes\\? java-like-scaping :)"
 print "Can I use 'simple quotes' without scaping? Yeah "
 print 'Can I use "double quotes" without scaping? Cool '
-print "Also, strings can be %s, as in %s " % ("formatted" , "printf")
+print "Also, strings can be %s, as in %s by using de string module operator (%%) " % ("formatted" , "printf")
 
 multilineWrittenString = """This is a string which
 can continue onto a new line. When printed, it will appear
