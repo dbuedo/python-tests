@@ -1,5 +1,5 @@
-
 class Rover:
+    
     def __init__(self, x, y, orientation):
         self.x = x
         self.y = y
@@ -45,7 +45,7 @@ class Rover:
         elif self.orientation == 'W':
             self.orientation = 'N' 
 
-    def move(self, commands):
+    def receiveCommands(self, commands):
         for command in commands:
             if command == "f":
                 self.forward()
