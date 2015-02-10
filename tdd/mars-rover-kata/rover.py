@@ -1,5 +1,7 @@
-TURN_RIGHT_DIRECTION = 1;
-TURN_LEFT_DIRECTION = -1;
+TURN_RIGHT_DIRECTION = 1
+TURN_LEFT_DIRECTION = -1
+FORWARD_DIRECTION = 1
+BACKWARD_DIRECTION = -1
 
 NORTH = 'N'
 EAST = 'E'
@@ -7,6 +9,12 @@ SOUTH = 'S'
 WEST = 'W'
 
 ORIENTATIONS = [NORTH, EAST, SOUTH, WEST]
+MOVE_STEP = {
+             NORTH : ( 0,  1),
+             EAST  : ( 1,  0),
+             SOUTH : ( 0, -1),
+             WEST  : (-1,  0)
+             }
 
 class Rover:
     def __init__(self, x, y, orientation):
@@ -14,25 +22,17 @@ class Rover:
         self.y = y
         self.orientation = orientation
 
+
+    def _move(self, direction):
+        step = MOVE_STEP[self.orientation]
+        self.x += step[0] * direction
+        self.y += step[1] * direction
+
     def forward(self):
-        if self.orientation == NORTH:
-            self.y += 1
-        elif self.orientation == SOUTH:
-            self.y -= 1
-        elif self.orientation == EAST:
-            self.x += 1    
-        elif self.orientation == WEST:
-            self.x -= 1    
+        self._move(FORWARD_DIRECTION)
     
     def backward(self):
-        if self.orientation == NORTH:
-            self.y -= 1
-        elif self.orientation == SOUTH:
-            self.y += 1
-        elif self.orientation == EAST:
-            self.x -= 1
-        elif self.orientation == WEST:
-            self.x += 1
+        self._move(BACKWARD_DIRECTION)
 
     def _turn(self, direction):
         currentOrientation = ORIENTATIONS.index(self.orientation)
