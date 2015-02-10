@@ -1,49 +1,50 @@
+TURN_RIGHT_DIRECTION = 1;
+TURN_LEFT_DIRECTION = -1;
+
+NORTH = 'N'
+EAST = 'E'
+SOUTH = 'S'
+WEST = 'W'
+
+ORIENTATIONS = [NORTH, EAST, SOUTH, WEST]
+
 class Rover:
-    
     def __init__(self, x, y, orientation):
         self.x = x
         self.y = y
         self.orientation = orientation
 
     def forward(self):
-        if self.orientation == 'N':
+        if self.orientation == NORTH:
             self.y += 1
-        elif self.orientation == 'S':
+        elif self.orientation == SOUTH:
             self.y -= 1
-        elif self.orientation == 'E':
+        elif self.orientation == EAST:
             self.x += 1    
-        elif self.orientation == 'W':
+        elif self.orientation == WEST:
             self.x -= 1    
     
     def backward(self):
-        if self.orientation == 'N':
+        if self.orientation == NORTH:
             self.y -= 1
-        elif self.orientation == 'S':
+        elif self.orientation == SOUTH:
             self.y += 1
-        elif self.orientation == 'E':
+        elif self.orientation == EAST:
             self.x -= 1
-        elif self.orientation == 'W':
+        elif self.orientation == WEST:
             self.x += 1
-    
-    def left(self):
-        if self.orientation == 'N':
-            self.orientation = 'W'
-        elif self.orientation == 'S':
-            self.orientation = 'E'
-        elif self.orientation == 'E':
-            self.orientation = 'N'
-        elif self.orientation == 'W':
-            self.orientation = 'S'
+
+    def _turn(self, direction):
+        currentOrientation = ORIENTATIONS.index(self.orientation)
+        nextOrientation = (currentOrientation + direction) % len(ORIENTATIONS)
+        self.orientation = ORIENTATIONS[nextOrientation]
+
+    def left(self):       
+        self._turn(TURN_LEFT_DIRECTION)
                    
     def right(self):
-        if self.orientation == 'N':
-            self.orientation = 'E'
-        elif self.orientation == 'S':
-            self.orientation = 'W' 
-        elif self.orientation == 'E':
-            self.orientation = 'S' 
-        elif self.orientation == 'W':
-            self.orientation = 'N' 
+        self._turn(TURN_RIGHT_DIRECTION)
+
 
     def receiveCommands(self, commands):
         for command in commands:
